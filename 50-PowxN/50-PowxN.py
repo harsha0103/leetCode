@@ -1,0 +1,23 @@
+# Last updated: 6/25/2026, 9:17:27 AM
+class Solution(object):
+    def myPow(self, x, n):
+        """
+        :type x: float
+        :type n: int
+        :rtype: float
+        """
+        def helper(x,n):
+            if n==0:
+                return 1
+            
+            if x==0:
+                return 0
+            
+            res=helper(x*x,n//2)
+
+            return res*x if n%2 else res
+        
+        res=helper(x,abs(n)) 
+
+        return res if n>0 else 1/res
+            
